@@ -1,1 +1,538 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <link rel="stylesheet" href="menustyle.css">
+    <link rel="stylesheet" href="mainpagestyle.css">
+    <link rel="stylesheet" href="styleSignUp.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <title>NUBiP Main Page</title>
+    <link rel="icon" type="image/png" href="img/cutesyicon.png"> 
+  </head>
+  <body>
+    <header id="nav-menu" aria-label="navigation bar">
+      <div class="container">
+        <div class="nav-start">
+          <a class="logo" href="index.html">
+            <img
+              src="img/logo.png"
+              width="55"
+              height="55"
+              alt="Inc Logo"
+            ></img>
+          </a>
+          <nav class="menu">
+            <ul class="menu-bar">
+              <li>
+                <li><a class="nav-link" href="index.html">ГОЛОВНА</a></li>
+                <button
+                  class="nav-link dropdown-btn"
+                  data-dropdown="dropdown2"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  aria-label="discover"
+                >
+                  НАВЧАННЯ
+                  <i class="bx bx-chevron-down" aria-hidden="true"></i>
+                </button>
+                <div id="dropdown2" class="dropdown">
+                  <ul role="menu">
+                        <span class="dropdown-link-title">Для студентів</span>
+                      <ul role="menu" class="dropdown-menu">
+                        <li role="menuitem">
+                          <a class="dropdown-link" href="#schedule">Розклад</a>
+                        </li>
+                        <li role="menuitem">
+                          <a class="dropdown-link" href="#scholarship">Стипендія</a>
+                        </li>
+                        <li role="menuitem">
+                          <a class="dropdown-link" href="#disciplines">Вибіркові дисципліни</a>
+                        </li>
+                        <li role="menuitem">
+                          <a class="dropdown-link" href="#school">Автошкола</a>
+                        </li>
+                        <li role="menuitem">
+                          <a class="dropdown-link" href="#yep">Просвіта</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                        <span class="dropdown-link-title">Для вступників</span>
+                      <ul role="menu" class="dropdown-menu">
+                        <li role="menuitem">
+                          <a class="dropdown-link" href="#1">Правила прийому</a>
+                        </li>
+                        <li role="menuitem">
+                          <a class="dropdown-link" href="#2">Підготовчі курси до складання НМТ / ЗНО в НУБіП України</a>
+                        </li>
+                        <li role="menuitem">
+                          <a class="dropdown-link" href="#3">Випускникам шкіл</a>
+                        </li>
+                        <li role="menuitem">
+                          <a class="dropdown-link" href="#4">Випускникам технікумів і коледжів</a>
+                        </li>
+                        <li role="menuitem">
+                          <a class="dropdown-link" href="#5">Магістратура</a>
+                        </li>
+                        <li role="menuitem">
+                          <a class="dropdown-link" href="#6">Додаткові питання</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              <li><a class="nav-link" href="/">НОВИНИ</a></li>
+              <li><a class="nav-link" href="/">ПРО НАС</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="nav-end">
+          <div class="right-container">
+            <form class="search" role="search">
+              <input type="search" name="search" placeholder="Search" />
+              <i class="bx bx-search" aria-hidden="true"></i>
+            </form>
+            <button onclick="document.getElementById('sign-up-popup').style.display='block'" id="signb" class="button sign-up">Sign Up</button>
+            <button onclick="document.getElementById('sign-in-popup').style.display='block'" id="signl" class="button sign-up">Sign in</button>
+            <div id="profile" style="display: none;">
+              <a class="nav-link" href="profile.html">
+            <li id="profile-item" >
+              <img src="img/baseuser.jpg" alt="Profile Photo">
+              <span id="user-firstname"></span>
+            </li>
+            </a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="slideshow-container">
 
+      <!-- Full-width images with number and caption text -->
+      <div class="mySlides fade">
+        <img class="imgslide" src="img/image1.jpg">
+        <div class="slidetext">Ботанічний сад запрошує відвідати найбільшу експозицію магнолій за видами в Україні</div>
+      </div>
+    
+      <div class="mySlides fade">
+        <img class="imgslide" src="img/image2.jpg">
+        <div class="slidetext">На Урочистій академії друзі, партнери, роботодавці та творчі колективи привітали НУБіП зі 126-річчям!</div>
+      </div>
+    
+      <div class="mySlides fade">
+        <img class="imgslide" src="img/image3.jpg">
+        <div class="slidetext">Caption Three</div>
+      </div>
+    
+      <!-- Next and previous buttons -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          <!-- The dots/circles -->
+          <div class="dot-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+          </div>
+      </div>   
+
+  </div>
+  <div id="sign-up-popup" class="popup-overlay">
+    <div class="form-container">
+        <button id="close" class="close-btn">×</button>
+        <h2>Sign Up</h2>
+        <form id="sign-up" action="http://httpbin.org/post" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <div class="input-group">
+                <input type="text" id="firstname" name="fname" />
+                <input type="text" id="lastname" name="lname" />
+              </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" required />
+                <p id="mobileError"></p>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" placeholder="example: MyEmail@nubip.edu.ua" name="email" required />
+                <p id="emailError"></p>
+            </div>
+            <div class="form-group">
+                <label for="Password">Password:</label>
+                <input type="password" id="password" name="password" required />
+            </div>
+            <div class="form-group">
+              <label class="checkbox-label" style="display: inline-block">
+                <input type="checkbox" onclick="togglePasswordVisibility()"> 
+              </label>
+              Show Password
+            </div>         
+            <div class="form-group">
+              <label for="gender">Gender:</label>
+              <select id="gender" name="gender" required>
+                  <option value="">Select gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+              </select>
+          </div>
+            <div class="form-group">
+                Teacher
+                <label class="checkbox-label" style="display: inline-block">
+                    <input
+                            type="checkbox"
+                            id="teacher"
+                            name="teacher"
+                            value="teacher" />
+                </label>
+                Student
+                <label class="checkbox-label" style="display: inline-block">
+                    <input
+                            type="checkbox"
+                            id="student"
+                            name="student"
+                            value="student"
+                    />
+                </label>
+              </div>
+              <div class="g-recaptcha"
+              data-sitekey="6LdYzOwpAAAAAHA0shETdWTIsJhfUtPp1bxgp6yO"></div>
+                      <div class="form-group">
+          <button type="submit" id="Signup">Submit</button>
+      </div>       
+        </form>
+
+      </div>
+    </div>
+</div>
+
+<div id="sign-in-popup" class="popup-overlay">
+  <div class="form-container">
+      <button id="close2" class="close-btn">×</button>
+      <h2>Sign In</h2>
+      <form id="sign-in">
+          <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="text" id="logemail" placeholder="example: MyEmail@nubip.edu.ua" name="email" required />
+              <p id="emailError"></p>
+          </div>
+          <div class="form-group">
+              <label for="Password">Password:</label>
+              <input type="password" id="logpassword" name="password" required />
+          </div>
+          <label>
+            <input type="checkbox" onclick="togglePasswordVisibility()"> Show Password
+        </label>
+          <div class="form-group">
+            <button type="submit" id="Signin">Submit</button>
+          </div>
+      </form>
+  </div>
+</div>
+</div>
+  <div class="news-container">
+    <div class="news-bord">
+      <h2 class="news-bord-heading">НОВИНИ</h2>
+      <div>
+        <ul class="news-list">
+          <li>
+            <div class="news-item">
+              <img class="news-img" src="img/baseuser.jpg">
+              <div class="news-content">
+                <i>April 1, 2023:</i>
+                <p>Новина</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="news-item">
+              <img class="news-img" src="img/baseuser.jpg">
+              <div class="news-content">
+                <i>April 15, 2023:</i>
+                <p>Новина</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="news-item">
+              <img class="news-img" src="img/baseuser.jpg">
+              <div class="news-content">
+                <i>April 30, 2023:</i>
+                <p>Новина</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+
+     <!-- Events Section -->
+     <div class="event-card">
+         <h2 class="event-heading">ПОДІЇ</h2>
+         <div class="event-details">
+          <div class="event">
+            <h3>Подія</h3>
+            <p>Дата: May 31, 2024</p>
+            <p>Виставка Голосіївської палітри</p>
+        </div>
+        <div class="event">
+            <h3>Подія</h3>
+            <p>Дата: May 31, 2024</p>
+            <p>Вебінар: Про GitHub</p>
+        </div>
+        <div class="event">
+            <h3>Подія</h3>
+            <p>Дата: May 20, 2024</p>
+            <p>Футбол</p>
+        </div>
+          <div type="button" class="event"  id="showcalendar">
+            <h3 style="text-align: center;">Календар подій</h3>
+        </div>
+         </div>
+     </div>
+ </div>
+ <div class="iframe-container" style="display: none;">
+ <iframe src="calendar/calendar.html" style="border:none;" height="1000px" width="100%" ></iframe>
+</div>
+<section id="about-us-section">
+  <div>
+    <img src="https://fastly.4sqi.net/img/general/width960/442291518_79afMG17BQT5XhNd45FA1EkfWRjMA-KguQYJciro640.jpg">
+  </div>
+  <div class="about-container-wrapper">
+ <div class="about-us-container">
+     <h2 class="aboutus-heading">Про університет</h2>
+     <p>
+      Національний університет біоресурсів 
+      і природокористування України — вищий навчальний 
+      заклад з IV рівнем акредитації. Це дослідницький 
+      університет, що здійснює освітню, науково-дослідну та інноваційну діяльність. 
+      Основна спрямованість університету — вивчення проблем науки про життя 
+      і природне середовище. Він займається також розробкою новітніх біотехнологій, 
+      енергозберігаючих агротехнологій та екологічного менеджменту. Університет також веде моніторинг якості сільськогосподарської продукції та довкілля.
+     </p>
+ </div></div>
+</section>
+
+<section class="uni-map" id="map">
+  <center><iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Sfu1ELvP3auNZMrbKik6uCms7W8hYIc&ehbc=2E312F&noprof=1" 
+    width="100%" 
+    height="500px" 
+    style="border:0;"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">></iframe></center>
+</section>  
+<footer class="footer">
+  <div class="footerColumn">
+    <img class="footer_logo" src="img/nubip_bottom_logo_ua.png" alt="NUBIP Logo">
+    <p class="socialMediaText">СОЦІАЛЬНІ МЕРЕЖІ</p>
+    <div class="socialMediaIcons">
+      <img href="https://www.instagram.com/sso.nubip1898/" src="img/instagram.png" alt="Icon 1" class="socialIcon">
+      <img href="facebook.com/nubip.edu.ua" src="img/facebook.png" alt="Icon 2" class="socialIcon">
+      <img href="t.me/vstupnubip" src="img/telegram.png" alt="Icon 3" class="socialIcon">
+    </div>
+  </div>
+  <div class="footerColumn">
+    <p>ПРИЙМАЛЬНА КОМІСІЯ</p>
+    <p>03041, м. Київ,</p>
+    <p>вул. Горіхуватський шлях, буд. 19,</p>
+    <p>навчальний корпус № 1, кімната № 12.</p>
+    <p>(044) 258-42-63, (044) 527-83-08</p>
+  </div>
+  <div class="footerColumn">
+    <p>РЕКТОРАТ</p>
+    <p>03041, Україна, м. Київ,</p>
+    <p>вул. Героїв Oборони, 15.</p>
+    <p>(044) 527-82-05</p>
+    <p>rectorat@nubip.edu.ua</p>
+  </div>
+</footer>
+<div class="copy-footer">
+<p class="copyright">©nubip 2024</p>
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+  <script src="mainpagescript.js"></script>
+  <script src="script.js"></script>
+  <script src="calendar.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+  <script>
+ $("#signb").click(function(event) {
+            window.onscroll = function() {
+                window.scrollTo(0, 0);
+            };
+        });
+
+        $("#signl").click(function(event) {
+            window.onscroll = function() {
+                window.scrollTo(0, 0);
+            };
+        });
+
+        $(document).ready(function() {
+            $('#close').click(function() {
+                $('#sign-up-popup').fadeOut('fast');
+                window.onscroll = null;  // Enable scrolling
+                console.log('scroll enabled');
+            });
+
+            $('#close2').click(function() {
+                $('#sign-in-popup').fadeOut('fast');
+                window.onscroll = null;  // Enable scrolling
+                console.log('scroll enabled');
+            });
+
+    $("#Signup").click(function(event) {
+        event.preventDefault(); // Prevent form submission initially
+        var phone = $("#phone").val();
+        var email = $("#email").val();
+        var password = $("#password").val();
+        var teacher = $("#teacher").is(":checked");
+        var student = $("#student").is(":checked");
+        var isValid = true; // Flag to track validation status
+        $("#mobileError").text('');
+        $("#emailError").text('');
+        // Validation
+        if (!validateMobileNumber(phone)) {
+            $("#mobileError").text('Please enter a valid phone number');
+            isValid = false;
+        }
+
+  if ((teacher || student) && !validateNUBiPEmail(email)) {
+    $("#emailError").text('Please enter your NUBiP email address');
+    isValid = false;
+} else if (!(teacher || student) && !validateRegularEmail(email)) {
+    $("#emailError").text('Please enter a valid email address');
+    isValid = false;
+}
+
+        if (password.length < 8) {
+            alert("Invalid password (minimum 8 characters)");
+            isValid = false;
+        }
+
+        // Call your server-side signup function here if all validations pass
+        if (isValid) {
+            store();
+            signedin();
+        }
+    });
+
+    // Handle checkbox clicks
+    $("#teacher").change(function() {
+        if ($(this).is(":checked")) {
+            $("#student").prop("checked", false);
+        }
+    });
+
+    $("#student").change(function() {
+        if ($(this).is(":checked")) {
+            $("#teacher").prop("checked", false);
+        }
+    });
+
+    // Validation functions
+    function validateMobileNumber(phone) {
+        let mobileRegex = /^[0-9]+$/;
+        return mobileRegex.test(phone);
+    }
+
+    function validateNUBiPEmail(email) {
+    const emailPattern = /^[^\s@]+@nubip\.edu\.ua$/;
+    return emailPattern.test(email);
+}
+
+function validateRegularEmail(email) {
+    const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return emailPattern.test(email);
+}
+
+function store() {
+    var firstname = $('#firstname').val();
+    var lastname = $('#lastname').val();
+    var email = $('#email').val();
+    var phone = $('#phone').val();
+    var password = $('#password').val();
+    var gender = $('#gender').val();
+    var teacher = $("#teacher").is(":checked");
+    var student = $("#student").is(":checked");
+    var remember = true;
+
+    var hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+
+    localStorage.setItem("firstname_data", firstname);
+    localStorage.setItem("lastname_data", lastname);
+    localStorage.setItem("email_data", email);
+    localStorage.setItem("phone_data", phone);
+    localStorage.setItem("password_data", hashedPassword); 
+    localStorage.setItem("gender_data", gender);
+    localStorage.setItem("teacher_data", teacher);
+    localStorage.setItem("student_data", student);
+    localStorage.setItem("remember_data", remember);
+
+    alert("Signed in!");
+    window.onscroll = null;
+    console.log('scroll enabled');
+}
+
+  });
+  var firstname = localStorage.getItem("firstname_data");
+$("#profile-item").css("display", "block");
+$("#user-firstname").text(firstname);
+
+function signIn(event) {
+    event.preventDefault();
+    var logemail = $('#logemail').val();
+    var logpassword = $('#logpassword').val();
+
+    var storedEmail = localStorage.getItem("email_data");
+    var storedPassword = localStorage.getItem("password_data");
+
+    // Hash the entered password
+    var hashedLogPassword = CryptoJS.SHA256(logpassword).toString(CryptoJS.enc.Hex);
+
+    if (logemail === storedEmail && hashedLogPassword === storedPassword) {
+        alert("Sign in successful!");
+        signedin();
+        window.onscroll = null;  // Enable scrolling
+        console.log('scroll enabled');
+    } else {
+        alert("Invalid email or password.");
+    }
+}
+
+        $(document).ready(function() {
+            $('#sign-in').on('submit', signIn);
+        });
+$(document).ready(function() {
+  checkRememberMe(); 
+});
+        function checkRememberMe() {
+    var remember = localStorage.getItem("remember_data");
+    if (remember === "true") {
+        $("#signb").hide(); // Hide the sign-in button
+        $("#signl").hide(); // Hide the sign-up button
+        $("#profile").show(); // Show the profile button or section
+    }
+}
+
+function signedin() {
+        $("#signb").hide(); // Hide the button
+        $("#signl").hide();
+        $("#profile").show();
+        document.getElementById('sign-up-popup').style.display = 'none';
+        document.getElementById('sign-in-popup').style.display = 'none';
+    }
+
+  </script>
+  </body>
+</html>
