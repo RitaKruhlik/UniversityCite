@@ -1,0 +1,4 @@
+{ "day": 31, "month": 5, "year": 2024, "calendarevs": [ { "title": "Збір", "time": "10:00 AM", "type": "gathering" }, { "title": "Вебінар", "time": "2:00 PM", "type": "webinar" } ] }
+{ "day": 20, "month": 5, "year": 2024, "calendarevs": [ { "title": "Подія 3", "time": "11:00 AM", "type": "other" } ] }
+{ "day": 12, "month": 5, "year": 2024, "calendarevs": [ { "title": "Збір", "time": "9:00 AM", "type": "gathering" }, { "title": "Вебінар", "time": "4:00 PM", "type": "webinar" } ] }
+{ "day": 15, "month": 6, "year": 2024, "calendarevs": [ { "title": "Подія 5", "time": "3:00 PM", "type": "other" } ] }

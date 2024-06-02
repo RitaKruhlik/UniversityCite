@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+.popup-overlay{
+  display:none;
+  position:absolute;
+  top:0;
+  left:0;
+  height:100vh;
+  width:100%;
+  background-color: rgba(0,0,0, 0.5);
+  overflow: hidden;
+  z-index: 2;
+}
+
+.form-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.232);
+  animation: slide-in 0.5s ease-in-out;
+  z-index: 3;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+.input-group {
+  display: flex;
+  margin-right: 5px; /* Add some spacing between inputs */
+}
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555555;
+}
+
+.form-group input,
+.form-group select,
+.form-group button  {
+  width: 100%;
+  padding: 8px 0px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333333;
+}
+
+.form-group button[type="button"] {
+  background-color: rgb(68,177,95);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.form-group button[type="button"]:hover {
+  background-color: rgb(68,177,95);
+}
+
+

@@ -1,0 +1,137 @@
+.account-header {
+    display: flex;
+    align-items: center;
+}
+
+.account-header .logo {
+    margin-right: 15px; 
+}
+
+.account-header h4 {
+    margin-top: 20px; 
+}
+
+body {
+    background: rgb(222, 227, 223);
+    margin-top: 25px;
+}
+
+.userphoto {
+    width: 80px;
+    height: 80px; /* Set height to match width for a perfect circle */
+    border-radius: 50%; /* Make it round */
+}
+
+.btn-default {
+    border-color: rgba(24, 28, 33, 0.1);
+    background  : rgba(0, 0, 0, 0);
+    color       : #4E5155;
+}
+
+label.btn {
+    margin-bottom: 0;
+}
+
+.btn-outline-primary {
+    border-color: rgb(68, 177, 95) !important; /* Ensure the border color is green */
+    background-color: transparent !important; /* Ensure the background color is transparent */
+    color: rgb(68, 177, 95) !important; /* Ensure the text color is green */
+    border-radius: 10px; /* Apply border-radius */
+    padding: 10px 20px; /* Apply padding */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Add transition effect */
+}
+
+.btn-outline-signout{
+    border-color: rgb(255, 0, 0) !important; /* Ensure the border color is green */
+    background-color: transparent !important; /* Ensure the background color is transparent */
+    color: rgb(255, 0, 0) !important; /* Ensure the text color is green */
+    border-radius: 10px; /* Apply border-radius */
+    padding: 10px 20px; /* Apply padding */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Add transition effect */
+}
+
+.btn-outline-primary:hover {
+    background-color: rgb(68, 177, 95) !important; /* Change background color on hover */
+    color: #fff !important
+}
+
+.btn-outline-signout:hover {
+    background-color: rgb(255, 0, 0) !important; /* Change background color on hover */
+    color: #fff !important
+}
+
+.footer-logo {
+  margin-bottom: 30px;
+}
+.footer-logo img {
+    max-width: 200px;
+}
+
+.text-light {
+    color: #679877 !important;
+}
+
+.card {
+    background-clip: padding-box;
+    box-shadow     : 0 1px 4px rgba(255, 27, 251, 0.012);
+}
+
+.row-bordered {
+    overflow: hidden;
+}
+
+.account-settings-fileinput {
+    position  : absolute;
+    visibility: hidden;
+    width     : 1px;
+    height    : 1px;
+    opacity   : 0;
+}
+
+.account-settings-links .list-group-item.active {
+    font-weight: bold !important;
+}
+
+html:not(.dark-style) .account-settings-links .list-group-item.active {
+    background: transparent !important;
+}
+
+.account-settings-multiselect~.select2-container {
+    width: 100% !important;
+}
+
+.light-style .account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+.light-style .account-settings-links .list-group-item.active {
+    color: #4e5155 !important;
+}
+
+.material-style .account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+.material-style .account-settings-links .list-group-item.active {
+    color: #4e5155 !important;
+}
+
+.dark-style .account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+.dark-style .account-settings-links .list-group-item.active {
+    color: #fff !important;
+}
+
+.light-style .account-settings-links .list-group-item.active {
+    color: #4E5155 !important;
+}
+
+.light-style .account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(24, 28, 33, 0.03) !important;
+}
